@@ -10,7 +10,7 @@ load_dotenv()
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 MODEL_NAME = "gemini-3.6-flash"
-REQUIRED_FIELDS = ["name", "age", "date_of_birth", "occupation"]
+REQUIRED_FIELDS = ["name", "gender", "age", "date_of_birth", "occupation", "annual_income"]
 MAX_HISTORY_MESSAGES = 10  # keep prompt size manageable
 
 
