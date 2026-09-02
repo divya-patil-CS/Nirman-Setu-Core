@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YojanaLink profile information">
+  <title>YojanaLink | जानकारी</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <!-- HEADER -->
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="YojanaLink home">
+        <span class="brand-mark" aria-hidden="true">Y</span>
+        <span>
+          <span class="brand-name">YojanaLink</span>
+          <span class="brand-tagline" data-i18n="common.tagline">आपकी योजनाओं का दुवा</span>
+        </span>
+      </a>
+      <p class="header-note" data-i18n="common.headerNote">सरकारी योजनाओं की जानकारी, अब आपकी भाषा में</p>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="login-main">
+      <section class="login-panel" aria-labelledby="info-heading">
+        <p class="eyebrow" data-i18n="common.welcome">आपका स्वागत है</p>
+        <h1 id="info-heading" data-i18n="info.title">अपनी जानकारी भरें</h1>
+        <p class="login-intro" data-i18n="info.intro">आपके लिए सही योजनाएं खोजने के लिए अपनी जानकारी दर्ज करें।</p>
+
+        <form class="info-form" novalidate>
+          <label class="form-label" for="full-name" data-i18n="info.fullName">पूरा नाम</label>
+          <input class="form-input" id="full-name" name="fullName" type="text" autocomplete="name" required data-i18n-placeholder="info.fullNamePlaceholder" placeholder="अपना पूरा नाम दर्ज करें">
+
+          <label class="form-label" for="email" data-i18n="info.email">ईमेल</label>
+          <input class="form-input" id="email" name="email" type="email" autocomplete="email" required data-i18n-placeholder="info.emailPlaceholder" placeholder="अपना ईमेल दर्ज करें">
+
+          <label class="form-label" for="location" data-i18n="info.location">स्थान</label>
+          <input class="form-input" id="location" name="location" type="text" autocomplete="address-level2" required data-i18n-placeholder="info.locationPlaceholder" placeholder="अपना शहर या गांव दर्ज करें">
+
+          <label class="form-label" for="profile-phone" data-i18n="info.phone">मोबाइल नंबर</label>
+          <input class="form-input" id="profile-phone" name="phone" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel" required>
+
+          <button class="continue-button" type="submit" data-i18n="info.submit">जानकारी जमा करें</button>
+          <p class="form-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <a class="secondary-link" href="index.html" data-i18n="common.changeLanguage">भाषा बदलें</a>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p data-i18n="common.trustMessage">सरल <span aria-hidden="true">•</span> सुरक्षित <span aria-hidden="true">•</span> आपके लिए</p>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
