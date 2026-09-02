@@ -29,9 +29,17 @@ def format_history(history: list) -> str:
 def chat_step(user_message: str, current_profile: dict, history: list = None, language: str = "Hindi") -> dict:
     history = history or []
 
+    # Always show the model the full set of required fields, with null
+    # for anything still missing, so it knows exactly what to ask for.
+    profile_for_prompt = {field: current_profile.get(field) for field in REQUIRED_FIELDS}
+    # Include any optional fields already filled (family_members, caste)
+    for optional_field in ["family_members", "caste"]:
+        if optional_field in current_profile:
+            profile_for_prompt[optional_field] = current_profile[optional_field]
+
     prompt = SYSTEM_PROMPT.format(
         language=language,
-        current_profile=json.dumps(current_profile),
+        current_profile=json.dumps(profile_for_prompt),
         conversation_history=format_history(history)
     )
 
