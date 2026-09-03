@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YojanaLink login">
+  <title>YojanaLink</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="YojanaLink home">
+        <span class="brand-mark" aria-hidden="true">Y</span>
+        <span>
+          <span class="brand-name">YojanaLink</span>
+          <span class="brand-tagline" data-i18n="common.tagline">आपकी योजनाओं का दुवा</span>
+        </span>
+      </a>
+      <p class="header-note" data-i18n="common.headerNote">सरकारी योजनाओं की जानकारी, अब आपकी भाषा में</p>
+      
+      <!-- Chatbot Icon in Header -->
+      <button class="header-chatbot-btn" aria-label="Help with chatbot" title="Chat support">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <main class="login-main">
+      <section class="login-panel" aria-labelledby="login-heading">
+        <p class="eyebrow" data-i18n="common.welcome">आपका स्वागत है</p>
+        <h1 id="login-heading" data-i18n="login.title">लॉग इन करें</h1>
+        <p class="login-intro" data-i18n="login.intro">सरकारी योजनाओं की जानकारी पाने के लिए अपना मोबाइल नंबर दर्ज करें।</p>
+
+        <form class="login-form" novalidate>
+          <label class="form-label" for="mobile-number" data-i18n="login.mobileNumber">मोबाइल नंबर</label>
+          <input class="form-input" id="mobile-number" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel" data-i18n-placeholder="login.mobilePlaceholder" placeholder="10 अंकों का मोबाइल नंबर">
+          <button class="continue-button send-otp-button" type="button" data-i18n="login.sendOtp">ओटीपी भेजें</button>
+
+          <div class="otp-section" hidden>
+            <label class="form-label" for="otp" data-i18n="login.enterOtp">ओटीपी दर्ज करें</label>
+            <input class="form-input" id="otp" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code" data-i18n-placeholder="login.otpPlaceholder" placeholder="6 अंकों का ओटीपी">
+            <button class="continue-button verify-button" type="button" data-i18n="login.verify">सत्यापित करें</button>
+            <button class="voice-button resend-otp-button" type="button" data-i18n="login.resendOtp">ओटीपी फिर से भेजें</button>
+          </div>
+          <p class="mock-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="selection-message" data-i18n="login.terms">आगे बढ़कर आप सेवा की शर्तों से सहमत हैं।</p>
+        <a class="secondary-link" href="index.html" data-i18n="common.changeLanguage">भाषा बदलें</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="common.trustMessage">सरल <span aria-hidden="true">•</span> सुरक्षित <span aria-hidden="true">•</span> आपके लिए</p>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

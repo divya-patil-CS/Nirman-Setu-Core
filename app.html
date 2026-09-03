@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YojanaLink - Government Schemes Information Portal">
+  <title>YojanaLink | सरकारी योजनाएं</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <!-- Main Application Container -->
+  <div class="app-container">
+    
+    <!-- HEADER SECTION -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="app-logo">Y</div>
+        <div class="app-title">
+          <h1>YojanaLink</h1>
+          <p>सरकारी योजनाएं</p>
+        </div>
+      </div>
+      
+      <div class="header-right">
+        <!-- Notification Icon -->
+        <button class="header-icon-btn notification-btn" id="notificationBtn" aria-label="Notifications">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+          <span class="notification-badge">3</span>
+        </button>
+        
+        <!-- Settings Icon -->
+        <button class="header-icon-btn settings-btn" id="settingsBtn" aria-label="Settings">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="1"></circle>
+            <circle cx="12" cy="5" r="1"></circle>
+            <circle cx="12" cy="19" r="1"></circle>
+          </svg>
+        </button>
+        
+        <!-- Profile Icon -->
+        <button class="header-icon-btn profile-btn" id="profileBtn" aria-label="Profile">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- NOTIFICATION PANEL (Hidden by default) -->
+    <div class="notification-panel panel-popup" id="notificationPanel">
+      <div class="panel-header">
+        <h3>सूचनाएं</h3>
+        <button class="close-panel-btn" aria-label="Close notifications">✕</button>
+      </div>
+      <div class="notification-list">
+        <div class="notification-item">
+          <div class="notification-icon">🆕</div>
+          <div class="notification-content">
+            <h4>नई छात्रवृत्ति योजना</h4>
+            <p>नई सरकारी छात्रवृत्ति योजना उपलब्ध है</p>
+            <span class="notification-time">2 घंटे पहले</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon">📅</div>
+          <div class="notification-content">
+            <h4>आवेदन की समय सीमा अपडेट</h4>
+            <p>PM किसान योजना की समय सीमा बढ़ाई गई</p>
+            <span class="notification-time">5 घंटे पहले</span>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-icon">🏠</div>
+          <div class="notification-content">
+            <h4>आवास योजना नई सूची</h4>
+            <p>आवास निर्माण योजना के लिए नई सूची जारी</p>
+            <span class="notification-time">1 दिन पहले</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETTINGS PANEL (Hidden by default) -->
+    <div class="settings-panel panel-popup" id="settingsPanel">
+      <div class="panel-header">
+        <h3>सेटिंग्स</h3>
+        <button class="close-panel-btn" aria-label="Close settings">✕</button>
+      </div>
+      <div class="settings-content">
+        <div class="settings-item">
+          <label for="languageSelect">भाषा</label>
+          <select id="languageSelect">
+            <option value="hi">हिंदी</option>
+            <option value="en">English</option>
+            <option value="mr">मराठी</option>
+          </select>
+        </div>
+        
+        <div class="settings-item">
+          <label for="notificationsToggle">सूचनाएं</label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="notificationsToggle" checked>
+            <label for="notificationsToggle" class="toggle-label"></label>
+          </div>
+        </div>
+        
+        <div class="settings-item">
+          <label for="darkModeToggle">गहरा मोड</label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="darkModeToggle">
+            <label for="darkModeToggle" class="toggle-label"></label>
+          </div>
+        </div>
+        
+        <div class="settings-item">
+          <label for="fontSizeSelect">फॉन्ट आकार</label>
+          <select id="fontSizeSelect">
+            <option value="small">छोटा</option>
+            <option value="medium" selected>मध्यम</option>
+            <option value="large">बड़ा</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- GOVERNMENT SCHEMES SECTION -->
+      <section class="schemes-section">
+        <div class="schemes-header">
+          <h2>सरकारी योजनाएं</h2>
+          <p class="schemes-subtitle">अपने लिए सही योजना खोजें</p>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <div class="search-container">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input 
+            type="text" 
+            id="schemeSearch" 
+            class="search-input" 
+            placeholder="सरकारी योजनाएं खोजें..."
+            aria-label="Search government schemes"
+          >
+        </div>
+
+        <!-- SCHEME CARDS CONTAINER -->
+        <div class="schemes-list" id="schemesList">
+          <!-- Scheme cards will be generated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- PERSONALIZED SUGGESTIONS SECTION (Hidden by default) -->
+      <section class="suggestions-section" id="suggestionsSection" style="display: none;">
+        <div class="section-header">
+          <h2>आपके लिए सुझाव</h2>
+          <p class="section-subtitle">आपकी प्रोफाइल के आधार पर सुझाई गई योजनाएं</p>
+        </div>
+        <div class="suggestions-list" id="suggestionsList">
+          <!-- Suggestions will be generated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- PROFILE/ID SECTION (Hidden by default) -->
+      <section class="profile-section" id="profileSection" style="display: none;">
+        <div class="profile-header">
+          <h2>आपकी प्रोफाइल</h2>
+          <p class="section-subtitle">अपनी जानकारी देखें और संपादित करें</p>
+        </div>
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <button class="btn btn-primary" id="editProfileBtn">प्रोफाइल संपादित करें</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-nav="home" aria-label="Home">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>होम</span>
+      </button>
+      
+      <button class="nav-item" data-nav="suggestions" aria-label="Personalized">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+        </svg>
+        <span>सुझाव</span>
+      </button>
+      
+      <button class="nav-item" data-nav="profile" aria-label="Profile">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span>आईडी</span>
+      </button>
+    </nav>
+
+    <!-- CHATBOT FLOATING BUTTON -->
+    <button class="chatbot-fab" id="chatbotFab" aria-label="Open chatbot">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+
+   <!-- CHATBOT PANEL (Hidden by default) -->
+    <div class="chatbot-panel" id="chatbotPanel">
+      <div class="chatbot-header">
+        <h3>YojanaLink सहायता</h3>
+        <button class="chatbot-close-btn" id="chatbotCloseBtn">✕</button>
+      </div>
+      
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div class="chat-message bot-message">
+          <p>नमस्ते! 👋 मैं आपकी सरकारी योजनाएं खोजने में मदद कर सकता हूं। कुछ प्रश्न पूछें।</p>
+        </div>
+      </div>
+
+      <div class="chatbot-otp-timer" id="otpTimer" style="display: none;">
+        <p>OTP भेज दिया गया</p>
+        <div class="otp-countdown">
+          <span id="countdownDisplay">00:30</span>
+        </div>
+        <div class="otp-input-group">
+          <input type="text" id="otpInput" placeholder="6 अंकों का OTP दर्ज करें" maxlength="6">
+          <button class="btn btn-small" id="verifyOtpBtn">सत्यापित करें</button>
+        </div>
+        <button class="btn-text" id="resendOtpBtn" disabled>OTP फिर से भेजें</button>
+      </div>
+
+      <div class="chatbot-input-group">
+  <input 
+    type="text" 
+    id="chatbotInput" 
+    class="chatbot-input" 
+    placeholder="अपना संदेश लिखें..."
+    aria-label="Chat message input"
+  >
+
+  <button class="btn-voice" id="chatbotVoiceBtn" aria-label="Voice message">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="#4285F4" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/>
+      <path fill="#34A853" d="M17 11a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H8v2h8v-2h-3v-3.08A7 7 0 0 0 19 11z"/>
+    </svg>
+  </button>
+
+  <button class="btn-send" id="chatbotSendBtn" aria-label="Send message">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.16346272 C3.50612381,0.9 2.40999899,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.837654326,3.0486314 1.15159189,3.99701575 L3.03521743,10.4379988 C3.03521743,10.5950961 3.19218622,10.7521935 3.50612381,10.7521935 L16.6915026,11.5376804 C16.6915026,11.5376804 17.1624089,11.5376804 17.1624089,12.0089725 C17.1624089,12.4744748 16.6915026,12.4744748 16.6915026,12.4744748 Z"/>
+    </svg>
+  </button>
+
+  <script>
+  const voiceBtn = document.getElementById("chatbotVoiceBtn");
+  const chatbotInput = document.getElementById("chatbotInput");
+  const sendBtn = document.getElementById("chatbotSendBtn");
+
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    voiceBtn.disabled = true;
+    alert("Voice input works best in Google Chrome or Microsoft Edge.");
+  } else {
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = "hi-IN"; // Change to "en-IN" for English
+    recognition.continuous = false;
+    recognition.interimResults = true;
+
+    let isListening = false;
+
+    voiceBtn.addEventListener("click", () => {
+      if (isListening) {
+        recognition.stop();
+      } else {
+        recognition.start();
+      }
+    });
+
+    recognition.onstart = () => {
+      isListening = true;
+      voiceBtn.classList.add("is-listening");
+      voiceBtn.setAttribute("aria-label", "Stop recording");
+    };
+
+    recognition.onend = () => {
+      isListening = false;
+      voiceBtn.classList.remove("is-listening");
+      voiceBtn.setAttribute("aria-label", "Start voice message");
+    };
+
+    recognition.onresult = (event) => {
+      let voiceText = "";
+
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        voiceText += event.results[i][0].transcript;
+      }
+
+      // Converts voice into text in the input box
+      chatbotInput.value = voiceText;
+
+      // Send automatically only after final voice result
+      if (event.results[event.results.length - 1].isFinal) {
+        sendBtn.click();
+      }
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Microphone error:", event.error);
+      alert("Please allow microphone permission and try again.");
+    };
+  }
+</script>
+
+    <!-- SCHEME DETAILS MODAL (Hidden by default) -->
+    <div class="modal" id="schemeModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalSchemeTitle">योजना विवरण</h2>
+          <button class="modal-close-btn" id="modalCloseBtn">✕</button>
+        </div>
+        
+        <div class="modal-body" id="modalBody">
+          <!-- Scheme details will be populated by JavaScript -->
+        </div>
+        
+        <div class="modal-footer">
+          <button class="btn btn-primary" id="applyNowBtn">अभी आवेदन करें</button>
+          <button class="btn btn-secondary" id="modalCancelBtn">बंद करें</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE EDIT MODAL (Hidden by default) -->
+    <div class="modal" id="profileModal">
+      <div class="modal-content modal-content-sm">
+        <div class="modal-header">
+          <h2>प्रोफाइल संपादित करें</h2>
+          <button class="modal-close-btn" id="profileModalCloseBtn">✕</button>
+        </div>
+        
+        <form class="profile-form" id="profileForm">
+          <div class="form-group">
+            <label for="editName">नाम:</label>
+            <input type="text" id="editName" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="editPhone">मोबाइल नंबर:</label>
+            <input type="tel" id="editPhone" maxlength="10" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="editEducation">शिक्षा:</label>
+            <select id="editEducation" required>
+              <option value="">चुनें</option>
+              <option value="10वीं">10वीं</option>
+              <option value="12वीं">12वीं</option>
+              <option value="स्नातक (B.A)">स्नातक (B.A)</option>
+              <option value="स्नातक (B.Sc)">स्नातक (B.Sc)</option>
+              <option value="स्नातक (B.Tech)">स्नातक (B.Tech)</option>
+              <option value="परास्नातक">परास्नातक</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="editState">राज्य:</label>
+            <select id="editState" required>
+              <option value="">चुनें</option>
+              <option value="उत्तर प्रदेश">उत्तर प्रदेश</option>
+              <option value="महाराष्ट्र">महाराष्ट्र</option>
+              <option value="बिहार">बिहार</option>
+              <option value="पंजाब">पंजाब</option>
+              <option value="गुजरात">गुजरात</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="editDistrict">जिला:</label>
+            <input type="text" id="editDistrict" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="editCategory">श्रेणी:</label>
+            <select id="editCategory" required>
+              <option value="">चुनें</option>
+              <option value="सामान्य">सामान्य</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="editSkills">कौशल:</label>
+            <input type="text" id="editSkills" placeholder="अल्पविराम से अलग करें">
+          </div>
+          
+          <div style="display: flex; gap: var(--spacing-md);">
+            <button type="submit" class="btn btn-primary" style="flex: 1;">सहेजें</button>
+            <button type="button" class="btn btn-secondary" id="signOutBtn" style="flex: 1; color: #dc3545; border-color: #dc3545;">साइन आउट</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/scheme-app.js"></script>
+</body>
+</html>

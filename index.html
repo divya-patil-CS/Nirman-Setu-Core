@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YojanaLink - सरकारी योजनाओं की जानकारी सरल भाषा में">
+  <title>YojanaLink</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-shell">
+    
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="YojanaLink home">
+        <span class="brand-mark" aria-hidden="true">Y</span>
+        <span>
+          <span class="brand-name">YojanaLink</span>
+          <span class="brand-tagline" data-i18n="common.tagline">आपकी योजनाओं का दुवा</span>
+        </span>
+      </a>
+      <p class="header-note" data-i18n="common.headerNote">सरकारी योजनाओं की जानकारी, अब आपकी भाषा में</p>
+    </header>
+
+    <main class="language-main">
+      <section class="language-panel" aria-labelledby="language-heading">
+        <p class="eyebrow" data-i18n="common.welcome">आपका स्वागत है</p>
+        <h1 id="language-heading" data-i18n="language.chooseLanguage">अपनी भाषा चुनें</h1>
+        <p class="intro-text" data-i18n="language.prompt">अपने आराम की भाषा चुनें</p>
+
+        <div class="language-options" role="group" data-i18n-aria="language.optionsLabel" aria-label="भाषा चुनें">
+          <button class="language-option" type="button" data-language="hi" aria-pressed="false">
+            <span class="language-native" data-i18n="language.hindi">हिंदी</span>
+            <span class="language-english">Hindi</span>
+          </button>
+          <button class="language-option" type="button" data-language="mr" aria-pressed="false">
+            <span class="language-native" data-i18n="language.marathi">मराठी</span>
+            <span class="language-english">Marathi</span>
+          </button>
+          <button class="language-option" type="button" data-language="en" aria-pressed="false">
+            <span class="language-native" data-i18n="language.english">English</span>
+            <span class="language-english">English</span>
+          </button>
+        </div>
+
+        <a class="continue-button" href="agree.html" data-i18n="common.continue">आगे बढ़ें</a>
+        <p class="selection-message" role="status" aria-live="polite" data-i18n="language.selectedMessage">भाषा चुनी गई है।</p>
+
+        <button class="voice-button language-audio-button" type="button" data-i18n-aria="common.listen" aria-label="सुनें">
+          <span aria-hidden="true">🔊</span>
+          <span data-i18n="common.listen">सुनें</span>
+        </button>
+
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="common.trustMessage">सरल <span aria-hidden="true">•</span> सुरक्षित <span aria-hidden="true">•</span> आपके लिए</p>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
