@@ -1,0 +1,94 @@
+[
+  {
+    "scheme_id": "bhausaheb_fundkar_orchard_plantation_scheme",
+    "name": "Bhausaheb Fundkar Orchard Plantation Scheme",
+    "deadline": null,
+    "active": false,
+    "status": "rejected",
+    "requires_admin_review": true,
+    "rules": {
+      "operator": "AND",
+      "conditions": [
+        {
+          "field": "beneficiary_type",
+          "op": "==",
+          "value": "individual"
+        },
+        {
+          "operator": "OR",
+          "conditions": [
+            {
+              "operator": "AND",
+              "conditions": [
+                {
+                  "field": "division",
+                  "op": "==",
+                  "value": "Konkan"
+                },
+                {
+                  "field": "agricultural_land_hectares",
+                  "op": ">=",
+                  "value": 0.1
+                },
+                {
+                  "field": "agricultural_land_hectares",
+                  "op": "<=",
+                  "value": 10.0
+                }
+              ]
+            },
+            {
+              "operator": "AND",
+              "conditions": [
+                {
+                  "field": "division",
+                  "op": "!=",
+                  "value": "Konkan"
+                },
+                {
+                  "field": "agricultural_land_hectares",
+                  "op": ">=",
+                  "value": 0.2
+                },
+                {
+                  "field": "agricultural_land_hectares",
+                  "op": "<=",
+                  "value": 6.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "required_documents": [
+      "7/12 land extract",
+      "8-A land extract",
+      "Self-declaration / Guarantee bond (Hamipatra)",
+      "Consent letter from all co-owners (if joint landholding)",
+      "Consent letter from tenant/kul (if applicable)",
+      "Aadhaar Card copy",
+      "Copy of first page of Aadhaar-linked bank passbook with photo",
+      "Caste Certificate (for SC/ST category applicants)"
+    ],
+    "benefits": [
+      "100% financial subsidy for orchard plantation disbursed across 3 years (50% in Year 1, 30% in Year 2, 20% in Year 3)",
+      "100% subsidy for installation of drip irrigation system",
+      "Subsidized or directly permitted supply of recommended saplings/grafts from government, agricultural university, or accredited private nurseries"
+    ],
+    "flagged_conditions": [
+      "First priority given to families whose sole source of livelihood is agriculture (husband, wife, minor children).",
+      "Priority given to SC/ST farmers, small/marginal farmers, women, and persons with disabilities (Divyang).",
+      "30% of the target budget is reserved for women farmers across all categories.",
+      "Plantation survival requirement: At least 80% survival rate required in Year 1 and 90% in Year 2 to receive subsequent year installments.",
+      "Farmers eligible under MGNREGA must first exhaust MGNREGA benefits up to 2 hectares before availing this scheme for remaining land.",
+      "Area previously benefited under state orchard schemes will be deducted from maximum eligible land limit.",
+      "Drip irrigation system must be maintained in the same field for at least 7 years.",
+      "Soil testing is mandatory at farmer's expense for citrus fruit crops (Lime, Orange, Sweet Lime).",
+      "Plantation work must be completed within 75 days from date of receiving prior approval (पूर्वसंमती).",
+      "Application must be submitted within 21 days from the date of advertisement publication."
+    ],
+    "approved_by": "admin",
+    "rejection_reason": "Duplicate test scheme"
+  }
+]
